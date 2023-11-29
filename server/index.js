@@ -17,6 +17,8 @@ const pool = new Pool({
   port: 5432,
 });
 
+console.log('Connecting to the database...');
+
 pool.connect((err, client, release) => {
     if (err) {
       return console.error('Error acquiring client', err.stack);
@@ -26,6 +28,20 @@ pool.connect((err, client, release) => {
   });
 
 // Define CRUD APIs here
+
+app.get('/create-properties-table', async (req, res) => {
+    const result = await pool.query(`
+      CREATE TABLE IF NOT EXISTS properties (
+        id SERIAL PRIMARY KEY,
+        type VARCHAR(255),
+        bedrooms INTEGER,
+        status VARCHAR(255),
+        image_url VARCHAR(255)
+      )
+    `);
+    res.json({ message: 'Properties table created or already exists' });
+  });
+  
 app.get('/properties', async (req, res) => {
   const result = await pool.query('SELECT * FROM properties');
   res.json(result.rows);
