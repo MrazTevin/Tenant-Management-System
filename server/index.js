@@ -5,7 +5,7 @@ const axios = require('axios');
 require('dotenv').config(); // Load environment variables from .env file
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
 app.use(bodyParser.json());
 
@@ -80,7 +80,7 @@ async function createListings() {
 }
 
 // Uncomment the line below to execute the script
-// createListings();
+createListings();
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
