@@ -59,3 +59,9 @@
   border-radius: 4px;
   padding: 1rem;
 }
+
+.property-card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
