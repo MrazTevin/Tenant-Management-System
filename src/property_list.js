@@ -6,7 +6,7 @@ function PropertyList() {
   return (
     <div className='property-grid'>
       {propertyListings.map((property, index) => (
-        <div key={index}>
+        <div key={index} className='property-card'>
           <img src={property.image_url} alt={property.type} />
           <p>{property.type}</p>
           <p>{property.bedrooms} bedrooms</p>
