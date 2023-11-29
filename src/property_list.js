@@ -1,9 +1,10 @@
 import React from 'react';
 import propertyListings from './property_data';
+import './App.css';
 
 function PropertyList() {
   return (
-    <div>
+    <div className='property-grid'>
       {propertyListings.map((property, index) => (
         <div key={index}>
           <img src={property.image_url} alt={property.type} />
