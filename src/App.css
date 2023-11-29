@@ -95,3 +95,45 @@
   margin-left: 30px;
   align-items: flex-start;
 }
+
+/* @media (max-width: 600px) {
+  .property-card {
+    flex-direction: column;
+  }
+
+  .property-image img {
+    width: 100%;
+  }
+
+  .property-info {
+    margin-top: 1rem;
+  }
+} */
+
+@media (max-width: 576px) {
+  .property-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .property-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 1rem;
+  }
+
+  .property-details {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .property-image {
+    width: 70%;
+    height: auto;
+    object-fit: cover;
+    overflow: hidden;
+  }
+}
+
