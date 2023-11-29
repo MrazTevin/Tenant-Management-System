@@ -13,9 +13,17 @@ const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
   database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
+//   password: process.env.DB_PASSWORD,
   port: 5432,
 });
+
+pool.connect((err, client, release) => {
+    if (err) {
+      return console.error('Error acquiring client', err.stack);
+    }
+    console.log('Connected to the database');
+    client.release();
+  });
 
 // Define CRUD APIs here
 app.get('/properties', async (req, res) => {
